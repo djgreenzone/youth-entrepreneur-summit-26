@@ -178,6 +178,69 @@
             .carousel-item { width: 10%; }
         }
 
+        /* --- KINETIC TIMELINE --- */
+        .timeline-wrapper { 
+            position: relative; 
+            padding-left: 60px; /* Space for the vertical line */
+            margin-top: 20px;
+        }
+
+        /* The Background Track */
+        .timeline-wrapper::before { 
+            content: ''; 
+            position: absolute; 
+            left: 10px; 
+            top: 0; 
+            bottom: 0; 
+            width: 4px; 
+            background: rgba(22, 36, 58, 0.05); 
+            border-radius: 10px; 
+        }
+
+        /* The Animated Progress Line */
+        .timeline-progress-line {
+            position: absolute;
+            left: 10px;
+            top: 0;
+            width: 4px;
+            height: 0%; /* Controlled by JS scroll */
+            background: var(--gradient-primary);
+            border-radius: 10px;
+            z-index: 1;
+            transition: height 0.4s ease-out;
+        }
+
+        .timeline-item { 
+            position: relative; 
+            margin-bottom: 50px; 
+            transition: all 0.6s var(--ease-out-expo);
+        }
+
+        /* The Glowing Dots */
+        .timeline-dot {
+            position: absolute;
+            left: -60px; /* Aligns with the line */
+            top: 30px;
+            width: 24px;
+            height: 24px;
+            background: white;
+            border: 5px solid #ddd; /* Default grey */
+            border-radius: 50%;
+            z-index: 2;
+            transition: all 0.4s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        /* Dot active states when the box reveals */
+        .timeline-item.active .timeline-dot {
+            border-color: var(--teal);
+            box-shadow: 0 0 15px rgba(21, 209, 213, 0.6);
+            transform: scale(1.2);
+        }
+
+        .timeline-item:nth-child(2).active .timeline-dot { border-color: var(--yellow); box-shadow: 0 0 15px rgba(255, 184, 0, 0.6); }
+        .timeline-item:nth-child(3).active .timeline-dot { border-color: var(--orange); box-shadow: 0 0 15px rgba(240, 101, 0, 0.6); }
+
         /* --- RESPONSIVE --- */
         @media (max-width: 1200px) { .hero h1 { font-size: 5rem; } }
         @media (max-width: 900px) {
@@ -321,31 +384,43 @@
             </div>
 
             <div class="timeline-wrapper">
-                
-                <div class="timeline-item bento-card reveal" style="background: var(--bg-cream); margin-bottom: 30px;" data-tilt>
-                    <h3 style="color: var(--teal); font-size: 1.8rem;">Day 1: The Foundation</h3>
-                    <p style="font-weight: 700; color: var(--navy);">Market Mayhem & Mindset Matters.</p>
-                    <p style="margin-top: 10px; font-size: 0.95rem; color: #555;">The journey begins with high-energy simulations designed to break comfort zones and establish the "Entrepreneur Mindset."</p>
+                <div class="timeline-progress-line" id="timeline-progress"></div>
+
+                <div class="timeline-item reveal" data-tilt>
+                    <div class="timeline-dot"></div>
+                    <div class="bento-card" style="background: var(--bg-cream);">
+                        <h3 style="color: var(--teal); font-size: 1.8rem;">Day 1: The Foundation</h3>
+                        <p style="font-weight: 700; color: var(--navy);">Market Mayhem & Mindset Matters.</p>
+                        <p style="margin-top: 10px; font-size: 0.95rem; color: #555;">The journey begins with high-energy simulations designed to break comfort zones and establish the "Entrepreneur Mindset."</p>
+                    </div>
                 </div>
 
-                <div class="timeline-item bento-card reveal delay-1" style="background: var(--bg-cream); margin-bottom: 30px;" data-tilt>
-                    <h3 style="color: var(--yellow); font-size: 1.8rem;">Day 2: The Blueprint</h3>
-                    <p style="font-weight: 700; color: var(--navy);">Market Research & Business Planning.</p>
-                    <p style="margin-top: 10px; font-size: 0.95rem; color: #555;">Teens learn to identify profitable problems, conduct real-world research, and architect a viable business model using modern tools.</p>
+                <div class="timeline-item reveal delay-1" data-tilt>
+                    <div class="timeline-dot"></div>
+                    <div class="bento-card" style="background: var(--bg-cream);">
+                        <h3 style="color: var(--yellow); font-size: 1.8rem;">Day 2: The Blueprint</h3>
+                        <p style="font-weight: 700; color: var(--navy);">Market Research & Business Planning.</p>
+                        <p style="margin-top: 10px; font-size: 0.95rem; color: #555;">Teens learn to identify profitable problems and architect a viable business model using modern tools.</p>
+                    </div>
                 </div>
 
-                <div class="timeline-item bento-card reveal delay-2" style="background: var(--bg-cream); margin-bottom: 30px;" data-tilt>
-                    <h3 style="color: var(--orange); font-size: 1.8rem;">Day 3: The Polish</h3>
-                    <p style="font-weight: 700; color: var(--navy);">Communication Keys & Pitch Practice.</p>
-                    <p style="margin-top: 10px; font-size: 0.95rem; color: #555;">Refining the message. Teens work on public speaking, slide deck design, and handling high-pressure questions from mentors.</p>
+                <div class="timeline-item reveal delay-2" data-tilt>
+                    <div class="timeline-dot"></div>
+                    <div class="bento-card" style="background: var(--bg-cream);">
+                        <h3 style="color: var(--orange); font-size: 1.8rem;">Day 3: The Polish</h3>
+                        <p style="font-weight: 700; color: var(--navy);">Communication Keys & Pitch Practice.</p>
+                        <p style="margin-top: 10px; font-size: 0.95rem; color: #555;">Refining the message. Teens work on public speaking, slide deck design, and handling high-pressure questions.</p>
+                    </div>
                 </div>
 
-                <div class="timeline-item bento-card reveal" style="background: var(--navy); color: white;" data-tilt>
-                    <h3 style="color: var(--teal); font-size: 1.8rem;">Day 4: The Execution</h3>
-                    <p style="font-weight: 700; color: var(--yellow);">Shark Tank Session & Awards.</p>
-                    <p style="margin-top: 10px; font-size: 0.95rem; color: rgba(255,255,255,0.8);">The finale. Live pitches to real investors, awards ceremony, and networking with 7-figure founders.</p>
+                <div class="timeline-item reveal" data-tilt>
+                    <div class="timeline-dot"></div>
+                    <div class="bento-card" style="background: var(--navy); color: white;">
+                        <h3 style="color: var(--teal); font-size: 1.8rem;">Day 4: The Execution</h3>
+                        <p style="font-weight: 700; color: var(--yellow);">Shark Tank Session & Awards.</p>
+                        <p style="margin-top: 10px; font-size: 0.95rem; color: rgba(255,255,255,0.8);">The finale. Live pitches to real investors, awards ceremony, and networking with 7-figure founders.</p>
+                    </div>
                 </div>
-
             </div>
         </div>
     </section>
@@ -367,28 +442,70 @@
         <a href="#" class="btn-primary" style="font-size: 1.5rem; padding: 20px 50px;">SECURE YOUR SPOT TODAY</a>
     </section>
 
-    <footer>
+   <footer>
         <h2 style="color: var(--yellow);">Y.E.S. '26</h2>
-        <div class="footer-links" style="margin: 20px 0;"><a href="#">DONATE</a><a href="#">PARTNER</a><a href="#">CONTACT</a></div>
+        <div class="footer-links" style="margin: 20px 0;">
+            <a href="#">DONATE</a>
+            <a href="#">PARTNER</a>
+            <a href="#">CONTACT</a>
+        </div>
         <p style="font-size: 0.85rem; color: #888;">&copy; 2026 Youth Entrepreneurs Summit. A Registered 501(c)3 Nonprofit.</p>
     </footer>
 
     <script>
         document.addEventListener("DOMContentLoaded", () => {
+            
+            // 1. SCROLL REVEAL LOGIC
+            // This makes elements slide in as you scroll down
             const reveals = document.querySelectorAll(".reveal");
-            const observer = new IntersectionObserver((entries) => {
+            const revealObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
-                    if (entry.isIntersecting) entry.target.classList.add("active");
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("active");
+                    }
                 });
             }, { threshold: 0.1 });
-            reveals.forEach(r => observer.observe(r));
+            
+            reveals.forEach(r => revealObserver.observe(r));
 
+            // 2. FAQ ACCORDION LOGIC
+            // Handles opening and closing the question boxes
             const faqItems = document.querySelectorAll('.faq-item');
             faqItems.forEach(item => {
-                item.querySelector('.faq-question').addEventListener('click', () => {
-                    item.classList.toggle('active');
-                });
+                const question = item.querySelector('.faq-question');
+                if (question) {
+                    question.addEventListener('click', () => {
+                        // Optional: Close other open items when one is clicked
+                        faqItems.forEach(otherItem => {
+                            if (otherItem !== item) otherItem.classList.remove('active');
+                        });
+                        item.classList.toggle('active');
+                    });
+                }
             });
+
+            // 3. TIMELINE PROGRESS LINE LOGIC
+            // This makes the vertical line "draw" itself during the scroll
+            const timelineWrapper = document.querySelector('.timeline-wrapper');
+            const progressLine = document.getElementById('timeline-progress');
+            
+            if (timelineWrapper && progressLine) {
+                window.addEventListener('scroll', () => {
+                    const rect = timelineWrapper.getBoundingClientRect();
+                    const windowHeight = window.innerHeight;
+                    
+                    // Logic to calculate how much of the timeline has been scrolled through
+                    if (rect.top < windowHeight && rect.bottom > 0) {
+                        const totalHeight = rect.height;
+                        const visiblePartOfTimeline = windowHeight - rect.top;
+                        const scrollPercentage = (visiblePartOfTimeline / (totalHeight + windowHeight / 2)) * 100;
+                        
+                        // Constrain percentage between 0 and 100
+                        const finalProgress = Math.min(Math.max(scrollPercentage, 0), 100);
+                        progressLine.style.height = `${finalProgress}%`;
+                    }
+                });
+            }
         });
     </script>
 </body>
