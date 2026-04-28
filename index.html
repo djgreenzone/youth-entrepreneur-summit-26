@@ -150,7 +150,21 @@
         }
     
         }
-        .hero h1 { font-size: 4.5rem; margin-bottom: 20px; line-height: 1.05; color: white; } /* White text for dark BG */
+        .hero h1 { 
+            font-size: 5.5rem; /* Increased size */
+            margin-bottom: 20px; 
+            line-height: 1; 
+            color: white; 
+            font-weight: 900;
+        }
+
+        /* Specific gradient for the hero text */
+        .hero-gradient-text {
+            background: linear-gradient(135deg, #00f2ff 0%, #7000ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
         .hero p { font-size: 1.2rem; margin-bottom: 30px; color: rgba(255,255,255,0.85); } /* Light text for dark BG */
         
         .hero-image-placeholder { 
@@ -267,20 +281,43 @@
         <video autoplay loop muted playsinline class="hero-bg-video">
             <source src="YES-hero-video-final_1_1.mp4" type="video/mp4">
         </video>
-        
         <div class="hero-gradient-overlay"></div>
-
         <div class="hero-content reveal">
             <div class="hero-kicker">While other teens are scrolling, yours will be building.</div>
-            <h1>LAS VEGAS YOUTH ENTREPRENEUR SUMMIT '26</h1>
+            <h1>LAS VEGAS YOUTH <br><span class="hero-gradient-text">ENTREPRENEUR SUMMIT</span> '26</h1>
             <p>Give your teen four days that will change their trajectory. Real business skills. 7-figure mentors. Real confidence.</p>
             <a href="#register" class="btn-primary">SECURE YOUR SPOT</a>
         </div>
-        
         <div class="hero-image-placeholder reveal delay-1" data-tilt data-tilt-glare data-tilt-max-glare="0.2">
             <img src="YES_hero_image.png" alt="YES 2026 Hero" style="width: 100%; border-radius: var(--radius-large);">
         </div>
     </header>
+
+    <section id="about">
+        <h2 class="section-title reveal">
+            NOT JUST A <span style="background: linear-gradient(135deg, #00f2ff 0%, #7000ff 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; display: inline-block;">SUMMER CAMP</span>.<br>A LAUNCHPAD FOR LEADERS.
+        </h2>
+        <div class="bento-asym">
+            <div class="bento-card featured-card shadow-orange reveal delay-1" 
+                 data-tilt data-tilt-glare data-tilt-max-glare="0.2" 
+                 style="background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('YES 2025-158.jpg'), #000; background-size: cover; background-position: center; display: flex; flex-direction: column; justify-content: center;">
+                <h3 style="background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent; display: inline-block;">
+                    Pitch to Real Investors
+                </h3>
+                <p>Teens develop a real business plan and pitch it live to active investors for a chance at actual launch funding and ongoing mentorship.</p>
+            </div>
+            <div class="bento-col-stack">
+                <div class="bento-card shadow-teal reveal delay-2" data-tilt data-tilt-glare data-tilt-max-glare="0.4">
+                    <h3 style="color: #000;">Master the Tools</h3>
+                    <p>Hands-on workshops covering modern market research, leveraging A.I. for business, and financial fundamentals.</p>
+                </div>
+                <div class="bento-card shadow-yellow reveal delay-3" data-tilt data-tilt-glare data-tilt-max-glare="0.4">
+                    <h3 style="color: #000;">Learn From the Best</h3>
+                    <p>Facilitated by industry veterans and active entrepreneurs who have built, scaled, and exited multi-million-dollar companies.</p>
+                </div>
+            </div>
+        </div>
+    </section>
     
     <section id="about">
         <h2 class="section-title reveal">
