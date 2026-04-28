@@ -50,7 +50,7 @@
         .nav-links a:hover { color: #00f2ff; }
 
         /* --- HERO SECTION --- */
-        .hero { 
+        .hero-content { position: relative; z-index: 2; }
             display: grid; grid-template-columns: 1fr 1fr; gap: 60px; padding: 120px 5%; align-items: center; 
             position: relative; overflow: hidden; background-color: #000;
         }
@@ -59,15 +59,26 @@
         .hero-content { position: relative; z-index: 2; }
         
         .hero-kicker { 
-            color: var(--teal); display: inline-block; font-weight: 400; margin-bottom: 20px; font-size: 0.9rem; letter-spacing: 1.5px;
-            text-transform: uppercase; text-shadow: 0 0 12px rgba(21, 209, 213, 0.7); background: none; padding: 0;
-        }give
+            color: var(--teal); 
+            display: inline-block; 
+            font-weight: 400; 
+            margin-bottom: 20px; 
+            font-size: 0.9rem; 
+            letter-spacing: 1.5px;
+            text-transform: uppercase; 
+            text-shadow: 0 0 12px rgba(21, 209, 213, 0.7); 
+            background: none; 
+            padding: 0; 
+        }
 
         .hero h1 { 
-            font-size: 6rem; /* Adjusted for better balance */
-            margin-bottom: 25px; line-height: 1; 
-            color: #ffffff !important; 
-            font-weight: 900; letter-spacing: -2px;
+            font-size: 7.5rem; /* Massive, impactful size */
+            margin-bottom: 25px; 
+            line-height: 0.95; 
+            color: #ffffff !important; /* Forced White */
+            font-weight: 900; 
+            letter-spacing: -3px;
+            text-transform: uppercase;
         }
 
         .hero-gradient-text {
@@ -277,7 +288,7 @@
         <div class="hero-gradient-overlay"></div>
         <div class="hero-content reveal">
             <div class="hero-kicker">While other teens are scrolling, yours will be building.</div>
-            <h1>LAS VEGAS YOUTH <br><span class="hero-gradient-text">ENTREPRENEUR SUMMIT</span> 2026</h1>
+            <h1>LAS VEGAS YOUTH <br><span class="hero-gradient-text">ENTREPRENEUR SUMMIT</span> '26</h1>
             <p>Give your teen four days that will change their trajectory. Real business skills. 7-figure mentors. Real confidence.</p>
             <a href="#register" class="btn-primary">SECURE YOUR SPOT</a>
         </div>
