@@ -56,29 +56,18 @@
         }
         .hero-bg-video { position: absolute; top: 50%; left: 50%; min-width: 100%; min-height: 100%; width: auto; height: auto; z-index: 0; transform: translateX(-50%) translateY(-50%); opacity: 0.5; object-fit: cover; }
         .hero-gradient-overlay { position: absolute; bottom: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%); z-index: 1; pointer-events: none; }
-        
         .hero-content { position: relative; z-index: 2; }
         
         .hero-kicker { 
-            color: var(--teal); 
-            display: inline-block; 
-            font-weight: 400; 
-            margin-bottom: 20px; 
-            font-size: 0.9rem; 
-            letter-spacing: 1.5px;
-            text-transform: uppercase; 
-            text-shadow: 0 0 12px rgba(21, 209, 213, 0.7); 
-            background: none; 
-            padding: 0; 
+            color: var(--teal); display: inline-block; font-weight: 400; margin-bottom: 20px; font-size: 0.9rem; letter-spacing: 1.5px;
+            text-transform: uppercase; text-shadow: 0 0 12px rgba(21, 209, 213, 0.7); background: none; padding: 0;
         }
 
         .hero h1 { 
             font-size: 6rem; 
-            margin-bottom: 25px; 
-            line-height: 0.95; 
+            margin-bottom: 25px; line-height: 0.95; 
             color: #ffffff !important; 
-            font-weight: 900; 
-            letter-spacing: -3px;
+            font-weight: 900; letter-spacing: -3px;
             text-transform: uppercase;
         }
 
@@ -136,111 +125,21 @@
         .delay-1 { transition-delay: 0.1s; }
 
         /* --- IMAGE CAROUSEL --- */
-        .carousel-wrapper {
-            margin-top: 60px;
-            overflow: hidden;
-            width: 100%;
-            position: relative;
-            padding: 20px 0;
-        }
-
-        .carousel-track {
-            display: flex;
-            width: 500%; 
-            animation: scroll-carousel 30s linear infinite;
-        }
-
-        .carousel-track:hover {
-            animation-play-state: paused;
-        }
-
-        .carousel-item {
-            width: 5%; 
-            padding: 0 10px;
-            flex-shrink: 0;
-        }
-
-        .carousel-item img {
-            width: 100%;
-            aspect-ratio: 3/4; 
-            object-fit: cover;
-            border-radius: var(--radius-large);
-            border: var(--border-subtle);
-            box-shadow: var(--shadow-soft);
-            transition: transform 0.3s ease;
-        }
-        
-        .carousel-item img:hover {
-            transform: scale(1.05);
-        }
-
-        @keyframes scroll-carousel {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); } 
-        }
-
-        /* Mobile Fix: Show 2 images instead of 4 */
-        @media (max-width: 900px) {
-            .carousel-track { width: 1000%; }
-            .carousel-item { width: 10%; }
-        }
+        .carousel-wrapper { margin-top: 60px; overflow: hidden; width: 100%; position: relative; padding: 20px 0; }
+        .carousel-track { display: flex; width: 500%; animation: scroll-carousel 30s linear infinite; }
+        .carousel-track:hover { animation-play-state: paused; }
+        .carousel-item { width: 5%; padding: 0 10px; flex-shrink: 0; }
+        .carousel-item img { width: 100%; aspect-ratio: 3/4; object-fit: cover; border-radius: var(--radius-large); border: var(--border-subtle); box-shadow: var(--shadow-soft); transition: transform 0.3s ease; }
+        .carousel-item img:hover { transform: scale(1.05); }
+        @keyframes scroll-carousel { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
         /* --- KINETIC TIMELINE --- */
-        .timeline-wrapper { 
-            position: relative; 
-            padding-left: 60px; 
-            margin-top: 20px;
-        }
-
-        .timeline-wrapper::before { 
-            content: ''; 
-            position: absolute; 
-            left: 10px; 
-            top: 0; 
-            bottom: 0; 
-            width: 4px; 
-            background: rgba(22, 36, 58, 0.05); 
-            border-radius: 10px; 
-        }
-
-        .timeline-progress-line {
-            position: absolute;
-            left: 10px;
-            top: 0;
-            width: 4px;
-            height: 0%;
-            background: var(--gradient-primary);
-            border-radius: 10px;
-            z-index: 1;
-            transition: height 0.4s ease-out;
-        }
-
-        .timeline-item { 
-            position: relative; 
-            margin-bottom: 50px; 
-            transition: all 0.6s var(--ease-out-expo);
-        }
-
-        .timeline-dot {
-            position: absolute;
-            left: -60px;
-            top: 30px;
-            width: 24px;
-            height: 24px;
-            background: white;
-            border: 5px solid #ddd;
-            border-radius: 50%;
-            z-index: 2;
-            transition: all 0.4s ease;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
-
-        .timeline-item.active .timeline-dot {
-            border-color: var(--teal);
-            box-shadow: 0 0 15px rgba(21, 209, 213, 0.6);
-            transform: scale(1.2);
-        }
-
+        .timeline-wrapper { position: relative; padding-left: 60px; margin-top: 20px; }
+        .timeline-wrapper::before { content: ''; position: absolute; left: 10px; top: 0; bottom: 0; width: 4px; background: rgba(22, 36, 58, 0.05); border-radius: 10px; }
+        .timeline-progress-line { position: absolute; left: 10px; top: 0; width: 4px; height: 0%; background: var(--gradient-primary); border-radius: 10px; z-index: 1; transition: height 0.4s ease-out; }
+        .timeline-item { position: relative; margin-bottom: 50px; transition: all 0.6s var(--ease-out-expo); }
+        .timeline-dot { position: absolute; left: -60px; top: 30px; width: 24px; height: 24px; background: white; border: 5px solid #ddd; border-radius: 50%; z-index: 2; transition: all 0.4s ease; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        .timeline-item.active .timeline-dot { border-color: var(--teal); box-shadow: 0 0 15px rgba(21, 209, 213, 0.6); transform: scale(1.2); }
         .timeline-item:nth-child(2).active .timeline-dot { border-color: var(--yellow); box-shadow: 0 0 15px rgba(255, 184, 0, 0.6); }
         .timeline-item:nth-child(3).active .timeline-dot { border-color: var(--orange); box-shadow: 0 0 15px rgba(240, 101, 0, 0.6); }
 
@@ -251,6 +150,7 @@
             .hero h1 { font-size: 3.5rem; letter-spacing: -1px; }
             h2.section-title { font-size: 2.5rem; }
             .nav-links { display: none; }
+            .carousel-track { width: 1000%; } .carousel-item { width: 10%; }
         }
     </style>
 </head>
@@ -269,7 +169,7 @@
             <a href="#contact">CONTACT</a>
         </div>
         <div>
-            <a href="#register" class="btn-primary btn-outline" style="padding: 10px 25px; font-size: 0.9rem;">SECURE YOUR SPOT</a>
+            <a href="#register" class="btn-primary" style="padding: 10px 25px; font-size: 0.9rem;">SECURE YOUR SPOT</a>
         </div>
     </nav>
 
@@ -331,17 +231,14 @@
                     <h3 style="color: var(--teal);">Visionary</h3>
                     <p>You refuse to settle for ordinary. Your innovative ideas spark possibilities.</p>
                 </div>
-                
                 <div class="bento-card reveal" style="background: rgba(10, 10, 10, 0.8); backdrop-filter: blur(10px); border: 1px solid rgba(255, 184, 0, 0.3); color: white;" data-tilt>
                     <h3 style="color: var(--yellow);">Team Player</h3>
                     <p>You know the power of collaboration and mutual support.</p>
                 </div>
-                
                 <div class="bento-card reveal" style="background: var(--teal); border: none; color: var(--navy);" data-tilt>
                     <h3 style="color: var(--navy);">Action Taker</h3>
                     <p>You don't just talk; you execute. You assess, adapt, and get results.</p>
                 </div>
-                
                 <div class="bento-card reveal" style="background: rgba(10, 10, 10, 0.8); backdrop-filter: blur(10px); border: 1px solid rgba(240, 101, 0, 0.3); color: white;" data-tilt>
                     <h3 style="color: var(--orange);">Learner</h3>
                     <p>You have an insatiable thirst for new strategies to grow personally.</p>
@@ -377,7 +274,6 @@
 
     <section id="schedule" style="background: #ffffff; border-top: 1px solid rgba(0,0,0,0.05);">
         <div class="sticky-section">
-            
             <div class="sticky-sidebar reveal">
                 <h2 class="section-title-left" style="color: var(--navy); margin-bottom: 30px;">
                     FOUR DAYS.<br><span style="background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">ZERO WASTED TIME.</span>
@@ -386,10 +282,8 @@
                     <img src="YES_Character2.png" alt="YES Character" style="max-width: 75%; height: auto; display: block; filter: drop-shadow(0 20px 30px rgba(0,0,0,0.1));">
                 </div>
             </div>
-
             <div class="timeline-wrapper">
                 <div class="timeline-progress-line" id="timeline-progress"></div>
-
                 <div class="timeline-item reveal" data-tilt>
                     <div class="timeline-dot"></div>
                     <div class="bento-card" style="background: var(--bg-cream);">
@@ -398,7 +292,6 @@
                         <p style="margin-top: 10px; font-size: 0.95rem; color: #555;">The journey begins with high-energy simulations designed to break comfort zones and establish the "Entrepreneur Mindset."</p>
                     </div>
                 </div>
-
                 <div class="timeline-item reveal delay-1" data-tilt>
                     <div class="timeline-dot"></div>
                     <div class="bento-card" style="background: var(--bg-cream);">
@@ -407,7 +300,6 @@
                         <p style="margin-top: 10px; font-size: 0.95rem; color: #555;">Teens learn to identify profitable problems and architect a viable business model using modern tools.</p>
                     </div>
                 </div>
-
                 <div class="timeline-item reveal delay-2" data-tilt>
                     <div class="timeline-dot"></div>
                     <div class="bento-card" style="background: var(--bg-cream);">
@@ -416,7 +308,6 @@
                         <p style="margin-top: 10px; font-size: 0.95rem; color: #555;">Refining the message. Teens work on public speaking, slide deck design, and handling high-pressure questions.</p>
                     </div>
                 </div>
-
                 <div class="timeline-item reveal" data-tilt>
                     <div class="timeline-dot"></div>
                     <div class="bento-card" style="background: var(--navy); color: white;">
@@ -458,20 +349,14 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-            
-            // 1. SCROLL REVEAL LOGIC
             const reveals = document.querySelectorAll(".reveal");
             const revealObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add("active");
-                    }
+                    if (entry.isIntersecting) entry.target.classList.add("active");
                 });
             }, { threshold: 0.1 });
-            
             reveals.forEach(r => revealObserver.observe(r));
 
-            // 2. FAQ ACCORDION LOGIC
             const faqItems = document.querySelectorAll('.faq-item');
             faqItems.forEach(item => {
                 const question = item.querySelector('.faq-question');
@@ -485,15 +370,12 @@
                 }
             });
 
-            // 3. TIMELINE PROGRESS LINE LOGIC
             const timelineWrapper = document.querySelector('.timeline-wrapper');
             const progressLine = document.getElementById('timeline-progress');
-            
             if (timelineWrapper && progressLine) {
                 window.addEventListener('scroll', () => {
                     const rect = timelineWrapper.getBoundingClientRect();
                     const windowHeight = window.innerHeight;
-                    
                     if (rect.top < windowHeight && rect.bottom > 0) {
                         const totalHeight = rect.height;
                         const visiblePartOfTimeline = windowHeight - rect.top;
