@@ -136,10 +136,19 @@
 
         .hero-content { position: relative; z-index: 2; } /* Keeps text above video */
         .hero-kicker { 
-            background: rgba(21, 209, 213, 0.15); color: var(--teal); 
+            color: var(--teal); 
             display: inline-block; padding: 8px 18px; border-radius: var(--radius-pill);
             font-weight: 400; margin-bottom: 20px; font-size: 0.9rem; letter-spacing: 0.5px;
             text-transform: uppercase; /* Makes it all capitals */
+
+            /* The Glow Effect */
+            text-shadow: 0 0 12px rgba(21, 209, 213, 0.7); 
+            
+            /* Clean up: removing background, padding, and radius */
+            background: none; 
+            padding: 0; 
+        }
+    
         }
         .hero h1 { font-size: 4.5rem; margin-bottom: 20px; line-height: 1.05; color: white; } /* White text for dark BG */
         .hero p { font-size: 1.2rem; margin-bottom: 30px; color: rgba(255,255,255,0.85); } /* Light text for dark BG */
