@@ -125,7 +125,7 @@
 
         /* --- IMAGE CAROUSEL --- */
         .carousel-wrapper {
-            margin-top: 80px;
+            margin-top: 60px;
             overflow: hidden;
             width: 100%;
             position: relative;
@@ -134,23 +134,27 @@
 
         .carousel-track {
             display: flex;
-            width: calc(25% * 20); /* 10 images + 10 clones */
-            animation: scroll-carousel 40s linear infinite;
+            /* 20 total items (10 original + 10 clones). 
+               To show 4 at a time, the track must be 500% of the container. */
+            width: 500%; 
+            animation: scroll-carousel 30s linear infinite; /* Adjusted speed */
         }
 
         .carousel-track:hover {
-            animation-play-state: paused; /* Pauses on cursor interaction */
+            animation-play-state: paused;
         }
 
         .carousel-item {
-            width: 25%; /* Shows exactly 4 at a time */
+            /* 100% divided by 20 items = 5% each. 
+               This results in exactly 4 images visible in the 100% wide viewport. */
+            width: 5%; 
             padding: 0 10px;
             flex-shrink: 0;
         }
 
         .carousel-item img {
             width: 100%;
-            aspect-ratio: 3/4; /* Maintains your 3x4 ratio */
+            aspect-ratio: 3/4; /* Maintains the 3x4 portrait ratio */
             object-fit: cover;
             border-radius: var(--radius-large);
             border: var(--border-subtle);
@@ -159,21 +163,19 @@
         }
         
         .carousel-item img:hover {
-            transform: scale(1.02);
+            transform: scale(1.05);
         }
 
         @keyframes scroll-carousel {
             0% { transform: translateX(0); }
-            100% { transform: translateX(calc(-25% * 10)); } /* Scroll past the first 10 images */
+            /* Move exactly half the track (the first 10 images) for a seamless loop */
+            100% { transform: translateX(-50%); } 
         }
 
-        /* Mobile Adjustment: Show 2 images instead of 4 */
+        /* Mobile Fix: Show 2 images instead of 4 */
         @media (max-width: 900px) {
-            .carousel-item { width: 50%; }
-            @keyframes scroll-carousel {
-                0% { transform: translateX(0); }
-                100% { transform: translateX(calc(-50% * 10)); }
-            }
+            .carousel-track { width: 1000%; } /* Adjust for 2-up view */
+            .carousel-item { width: 10%; }
         }
 
         /* --- RESPONSIVE --- */
@@ -259,26 +261,26 @@
 
         <div class="carousel-wrapper reveal delay-1">
             <div class="carousel-track">
-                <div class="carousel-item"><img src="3x4-1.png" alt="YES Gallery"></div>
-                <div class="carousel-item"><img src="3x4-2.png" alt="YES Gallery"></div>
-                <div class="carousel-item"><img src="3x4-3.png" alt="YES Gallery"></div>
-                <div class="carousel-item"><img src="3x4-4.png" alt="YES Gallery"></div>
-                <div class="carousel-item"><img src="3x4-5.png" alt="YES Gallery"></div>
-                <div class="carousel-item"><img src="3x4-6.png" alt="YES Gallery"></div>
-                <div class="carousel-item"><img src="3x4-7.png" alt="YES Gallery"></div>
-                <div class="carousel-item"><img src="3x4-8.png" alt="YES Gallery"></div>
-                <div class="carousel-item"><img src="3x4-9.png" alt="YES Gallery"></div>
-                <div class="carousel-item"><img src="3x4-10.png" alt="YES Gallery"></div>
-                <div class="carousel-item"><img src="3x4-1.png" alt="YES Gallery"></div>
-                <div class="carousel-item"><img src="3x4-2.png" alt="YES Gallery"></div>
-                <div class="carousel-item"><img src="3x4-3.png" alt="YES Gallery"></div>
-                <div class="carousel-item"><img src="3x4-4.png" alt="YES Gallery"></div>
-                <div class="carousel-item"><img src="3x4-5.png" alt="YES Gallery"></div>
-                <div class="carousel-item"><img src="3x4-6.png" alt="YES Gallery"></div>
-                <div class="carousel-item"><img src="3x4-7.png" alt="YES Gallery"></div>
-                <div class="carousel-item"><img src="3x4-8.png" alt="YES Gallery"></div>
-                <div class="carousel-item"><img src="3x4-9.png" alt="YES Gallery"></div>
-                <div class="carousel-item"><img src="3x4-10.png" alt="YES Gallery"></div>
+                <div class="carousel-item"><img src="3x4-1.png" alt="YES 1"></div>
+                <div class="carousel-item"><img src="3x4-10.png" alt="YES 10"></div>
+                <div class="carousel-item"><img src="3x4-2.png" alt="YES 2"></div>
+                <div class="carousel-item"><img src="3x4-3.png" alt="YES 3"></div>
+                <div class="carousel-item"><img src="3x4-4.png" alt="YES 4"></div>
+                <div class="carousel-item"><img src="3x4-5.png" alt="YES 5"></div>
+                <div class="carousel-item"><img src="3x4-6.png" alt="YES 6"></div>
+                <div class="carousel-item"><img src="3x4-7.png" alt="YES 7"></div>
+                <div class="carousel-item"><img src="3x4-8.png" alt="YES 8"></div>
+                <div class="carousel-item"><img src="3x4-9.png" alt="YES 9"></div>
+                <div class="carousel-item"><img src="3x4-1.png" alt="YES 1"></div>
+                <div class="carousel-item"><img src="3x4-10.png" alt="YES 10"></div>
+                <div class="carousel-item"><img src="3x4-2.png" alt="YES 2"></div>
+                <div class="carousel-item"><img src="3x4-3.png" alt="YES 3"></div>
+                <div class="carousel-item"><img src="3x4-4.png" alt="YES 4"></div>
+                <div class="carousel-item"><img src="3x4-5.png" alt="YES 5"></div>
+                <div class="carousel-item"><img src="3x4-6.png" alt="YES 6"></div>
+                <div class="carousel-item"><img src="3x4-7.png" alt="YES 7"></div>
+                <div class="carousel-item"><img src="3x4-8.png" alt="YES 8"></div>
+                <div class="carousel-item"><img src="3x4-9.png" alt="YES 9"></div>
             </div>
         </div>
     </section>
