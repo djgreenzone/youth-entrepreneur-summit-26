@@ -78,16 +78,42 @@
         .btn-outline { background-color: transparent; color: var(--navy); border: 2px solid rgba(22, 36, 58, 0.2); box-shadow: none;}
         .btn-outline:hover { background-color: var(--navy); color: var(--bg-cream); border-color: var(--navy);}
 
-        /* --- NAVIGATION --- */
+       /* --- NAVIGATION --- */
         nav {
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 20px 5%; background: rgba(255, 247, 235, 0.95);
-            backdrop-filter: blur(10px); border-bottom: var(--border-subtle); position: sticky; top: 0; z-index: 100;
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            padding: 10px 5%; /* Tightened padding for a sleeker look */
+            /* Cyan Blue to Black Gradient */
+            background: linear-gradient(to right, #00f2ff, #000000); 
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            position: sticky; 
+            top: 0; 
+            z-index: 1000; 
         }
-        .nav-logo-text { font-size: 2rem; color: var(--navy); }
-        .nav-logo-text span { color: var(--orange); }
-        .nav-links a { margin: 0 15px; text-decoration: none; color: var(--navy); font-weight: 700; font-size: 0.95rem; transition: color 0.2s;}
-        .nav-links a:hover { color: var(--orange); }
+
+        .nav-logo-img {
+            height: 40px; /* This keeps the logo perfectly sized inside the bar */
+            width: auto; /* Maintains proportions */
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-logo-img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Adjusting link colors to be visible on the dark gradient */
+        .nav-links a { 
+            margin: 0 15px; 
+            text-decoration: none; 
+            color: white; /* Changed to white for visibility */
+            font-weight: 700; 
+            font-size: 0.9rem; 
+            transition: color 0.2s;
+        }
+        
+        .nav-links a:hover { color: #00f2ff; }
 
         /* --- HERO --- */
         .hero { 
