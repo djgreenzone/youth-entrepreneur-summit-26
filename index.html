@@ -57,72 +57,55 @@
         .hero-bg-video { position: absolute; top: 50%; left: 50%; min-width: 100%; min-height: 100%; width: auto; height: auto; z-index: 0; transform: translateX(-50%) translateY(-50%); opacity: 0.5; object-fit: cover; }
         .hero-gradient-overlay { position: absolute; bottom: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%); z-index: 1; pointer-events: none; }
         .hero-content { position: relative; z-index: 2; }
-        
         .hero-kicker { 
             color: var(--teal); display: inline-block; font-weight: 400; margin-bottom: 20px; font-size: 0.9rem; letter-spacing: 1.5px;
-            text-transform: uppercase; text-shadow: 0 0 12px rgba(21, 209, 213, 0.7); background: none; padding: 0;
+            text-transform: uppercase; text-shadow: 0 0 12px rgba(21, 209, 213, 0.7); 
         }
-
         .hero h1 { 
-            font-size: 6rem; 
-            margin-bottom: 25px; line-height: 0.95; 
-            color: #ffffff !important; 
-            font-weight: 900; letter-spacing: -3px;
-            text-transform: uppercase;
+            font-size: 6rem; /* Locked at 6rem */
+            margin-bottom: 25px; line-height: 0.95; color: #ffffff !important; 
+            font-weight: 900; letter-spacing: -3px; text-transform: uppercase;
         }
-
         .hero-gradient-text {
             background: linear-gradient(135deg, #00f2ff 0%, #7000ff 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            display: inline;
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; display: inline;
         }
-
         .hero p { font-size: 1.2rem; margin-bottom: 30px; color: rgba(255,255,255,0.85); max-width: 600px; }
         .hero-image-placeholder { position: relative; z-index: 2; }
 
-        /* --- SECTION TITLES (H2) --- */
-        h2.section-title { font-size: 4rem; text-align: center; margin-bottom: 50px; line-height: 1; }
-        h2.section-title-left { font-size: 3.5rem; text-align: left; margin-bottom: 20px; line-height: 1; }
+        /* --- BENTO CARDS & INTERACTION --- */
+        .bento-card { 
+            background: white; padding: 40px; border-radius: var(--radius-large); 
+            border: var(--border-subtle); box-shadow: var(--shadow-soft); 
+            transition: transform 0.4s var(--ease-out-expo), box-shadow 0.4s var(--ease-out-expo), border-color 0.4s ease !important;
+            transform-style: preserve-3d;
+        }
+        .bento-card:hover { transform: translateY(-10px) scale(1.02) !important; z-index: 10; }
+        
+        /* Glows for Audience Section */
+        .bento-card.glow-teal:hover { border-color: var(--teal) !important; box-shadow: 0 20px 40px rgba(0,0,0,0.4), 0 0 25px rgba(21, 209, 213, 0.4); }
+        .bento-card.glow-yellow:hover { border-color: var(--yellow) !important; box-shadow: 0 20px 40px rgba(0,0,0,0.4), 0 0 25px rgba(255, 184, 0, 0.4); }
+        .bento-card.glow-orange:hover { border-color: var(--orange) !important; box-shadow: 0 20px 40px rgba(0,0,0,0.4), 0 0 25px rgba(240, 101, 0, 0.4); }
 
-        /* --- BENTO BOXES & CARDS --- */
-        .bento-asym { display: grid; grid-template-columns: 1.2fr 1fr; gap: 30px; }
-        .bento-card { background: white; padding: 40px; border-radius: var(--radius-large); border: var(--border-subtle); box-shadow: var(--shadow-soft); transform-style: preserve-3d; }
         .featured-card { background: var(--navy); color: white; min-height: 400px; display: flex; flex-direction: column; justify-content: center; }
+        .bento-asym { display: grid; grid-template-columns: 1.2fr 1fr; gap: 30px; }
         .bento-col-stack { display: flex; flex-direction: column; gap: 30px; }
-
         .grid-2x2 { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+
+        /* --- STICKY SECTIONS --- */
         .sticky-section { display: grid; grid-template-columns: 1fr 1.5fr; gap: 60px; align-items: start; }
         .sticky-sidebar { position: sticky; top: 120px; }
-
-        /* --- FAQ --- */
-        .faq-split { display: grid; grid-template-columns: 1fr 1.2fr; gap: 60px; align-items: start; max-width: 1200px; margin: 0 auto;}
-        .faq-item { border: var(--border-subtle); border-radius: var(--radius-large); margin-bottom: 15px; overflow: hidden; background: white; box-shadow: var(--shadow-soft);}
-        .faq-question { padding: 25px 30px; font-size: 1.2rem; font-weight: 800; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
-        .faq-answer { padding: 0 30px; max-height: 0; overflow: hidden; transition: max-height 0.4s var(--ease-out-expo), padding 0.4s var(--ease-out-expo); color: #555; }
-        .faq-item.active .faq-answer { padding: 0 30px 25px 30px; max-height: 600px; }
+        h2.section-title { font-size: 4rem; text-align: center; margin-bottom: 50px; line-height: 1; }
+        h2.section-title-left { font-size: 3.5rem; text-align: left; margin-bottom: 20px; line-height: 1; }
 
         /* --- BUTTONS --- */
         .btn-primary {
             display: inline-flex; align-items: center; justify-content: center;
             background: var(--gradient-primary); color: var(--navy);
             padding: 18px 40px; font-weight: 800; text-decoration: none; border-radius: var(--radius-pill); 
-            box-shadow: 0 10px 20px rgba(240, 101, 0, 0.25); transition: 0.3s var(--ease-out-expo);
-            text-transform: uppercase;
+            box-shadow: 0 10px 20px rgba(240, 101, 0, 0.25); transition: 0.3s var(--ease-out-expo); text-transform: uppercase;
         }
         .btn-primary:hover { transform: translateY(-4px); box-shadow: 0 15px 30px rgba(240, 101, 0, 0.4); }
-        .btn-outline { background: transparent; color: white; border: 2px solid white; box-shadow: none; }
-
-        /* --- FINAL CTA & FOOTER --- */
-        .final-cta { text-align: center; padding: 100px 5%; background: var(--gradient-primary); color: var(--navy); border-radius: var(--radius-large); margin: 0 5% 50px 5%; }
-        .final-cta h2 { font-size: 4rem; margin-bottom: 20px; line-height: 1;}
-        footer { padding: 60px 5%; text-align: center; background: var(--navy); color: white; }
-        .footer-links a { margin: 0 10px; color: var(--teal); text-decoration: none; font-weight: 600; }
-
-        /* --- ANIMATIONS --- */
-        .reveal { opacity: 0; transform: translateY(40px); transition: 1s var(--ease-out-expo); }
-        .reveal.active { opacity: 1; transform: translateY(0); }
-        .delay-1 { transition-delay: 0.1s; }
 
         /* --- IMAGE CAROUSEL --- */
         .carousel-wrapper { margin-top: 60px; overflow: hidden; width: 100%; position: relative; padding: 20px 0; }
@@ -130,7 +113,6 @@
         .carousel-track:hover { animation-play-state: paused; }
         .carousel-item { width: 5%; padding: 0 10px; flex-shrink: 0; }
         .carousel-item img { width: 100%; aspect-ratio: 3/4; object-fit: cover; border-radius: var(--radius-large); border: var(--border-subtle); box-shadow: var(--shadow-soft); transition: transform 0.3s ease; }
-        .carousel-item img:hover { transform: scale(1.05); }
         @keyframes scroll-carousel { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
         /* --- KINETIC TIMELINE --- */
@@ -140,15 +122,29 @@
         .timeline-item { position: relative; margin-bottom: 50px; transition: all 0.6s var(--ease-out-expo); }
         .timeline-dot { position: absolute; left: -60px; top: 30px; width: 24px; height: 24px; background: white; border: 5px solid #ddd; border-radius: 50%; z-index: 2; transition: all 0.4s ease; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
         .timeline-item.active .timeline-dot { border-color: var(--teal); box-shadow: 0 0 15px rgba(21, 209, 213, 0.6); transform: scale(1.2); }
-        .timeline-item:nth-child(2).active .timeline-dot { border-color: var(--yellow); box-shadow: 0 0 15px rgba(255, 184, 0, 0.6); }
-        .timeline-item:nth-child(3).active .timeline-dot { border-color: var(--orange); box-shadow: 0 0 15px rgba(240, 101, 0, 0.6); }
+
+        /* --- FAQ --- */
+        .faq-split { display: grid; grid-template-columns: 1fr 1.2fr; gap: 60px; align-items: start; max-width: 1200px; margin: 0 auto;}
+        .faq-item { border: var(--border-subtle); border-radius: var(--radius-large); margin-bottom: 15px; overflow: hidden; background: white; box-shadow: var(--shadow-soft);}
+        .faq-question { padding: 25px 30px; font-size: 1.2rem; font-weight: 800; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+        .faq-answer { padding: 0 30px; max-height: 0; overflow: hidden; transition: max-height 0.4s var(--ease-out-expo), padding 0.4s var(--ease-out-expo); color: #555; }
+        .faq-item.active .faq-answer { padding: 0 30px 25px 30px; max-height: 600px; }
+
+        /* --- FINAL CTA & FOOTER --- */
+        .final-cta { text-align: center; padding: 100px 5%; background: var(--gradient-primary); color: var(--navy); border-radius: var(--radius-large); margin: 0 5% 50px 5%; }
+        footer { padding: 60px 5%; text-align: center; background: var(--navy); color: white; }
+        .footer-links a { margin: 0 10px; color: var(--teal); text-decoration: none; font-weight: 600; }
+
+        /* --- ANIMATIONS --- */
+        .reveal { opacity: 0; transform: translateY(40px); transition: 1s var(--ease-out-expo); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        .delay-1 { transition-delay: 0.1s; }
 
         /* --- RESPONSIVE --- */
         @media (max-width: 1200px) { .hero h1 { font-size: 4.5rem; } }
         @media (max-width: 900px) {
             .hero, .bento-asym, .sticky-section { grid-template-columns: 1fr; text-align: center; }
             .hero h1 { font-size: 3.5rem; letter-spacing: -1px; }
-            h2.section-title { font-size: 2.5rem; }
             .nav-links { display: none; }
             .carousel-track { width: 1000%; } .carousel-item { width: 10%; }
         }
@@ -193,29 +189,25 @@
         <h2 class="section-title reveal" style="color: var(--navy); margin-bottom: 50px;">
             NOT JUST A <span style="background: linear-gradient(135deg, #00f2ff 0%, #7000ff 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; display: inline-block;">SUMMER CAMP</span>.<br>A LAUNCHPAD FOR LEADERS.
         </h2>
-
         <div class="bento-asym">
             <div class="bento-card featured-card reveal" style="background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('YES 2025-158.jpg'), #000; background-size: cover; background-position: center; border: none;">
-                <h3 style="background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent; display: inline-block; font-size: 3rem;">Pitch to <br>Real Investors</h3>
-                <p>Teens develop a real business plan and pitch it live to active investors for a chance at actual launch funding.</p>
+                <h3 style="background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent; display: inline-block; font-size: 3rem; transform: translateZ(50px);">Pitch to <br>Real Investors</h3>
+                <p style="transform: translateZ(30px);">Teens develop a real business plan and pitch it live to active investors for a chance at actual launch funding.</p>
             </div>
-
             <div class="bento-col-stack">
                 <div class="bento-card reveal delay-1" style="background: var(--bg-cream); border: var(--border-subtle);">
-                    <h3 style="color: #000;">Master the Tools</h3>
-                    <p>Hands-on workshops covering modern market research, leveraging A.I. for business, and financial fundamentals.</p>
+                    <h3 style="color: #000; transform: translateZ(40px);">Master the Tools</h3>
+                    <p style="transform: translateZ(20px);">Hands-on workshops covering modern market research, leveraging A.I. for business, and financial fundamentals.</p>
                 </div>
-
                 <div class="bento-card reveal delay-2" style="background: var(--bg-cream); border: var(--border-subtle);">
-                    <h3 style="color: #000;">Learn From the Best</h3>
-                    <p>Facilitated by industry veterans who have built, scaled, and exited multi-million-dollar companies.</p>
+                    <h3 style="color: #000; transform: translateZ(40px);">Learn From the Best</h3>
+                    <p style="transform: translateZ(20px);">Facilitated by industry veterans who have built, scaled, and exited multi-million-dollar companies.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <section id="audience" style="position: relative; background: linear-gradient(to top, #000 0%, transparent 40%), linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('YES_BACKGROUND.jpg') center/cover no-repeat; color: white; padding-bottom: 100px;">
-        
         <div class="sticky-section">
             <div class="sticky-sidebar reveal">
                 <h2 class="section-title-left" style="color: white;">BUILT FOR DRIVEN YOUTH <br>
@@ -225,23 +217,22 @@
                 </h2>
                 <p style="font-size: 1.2rem; color: rgba(255,255,255,0.9); text-shadow: 0 2px 4px rgba(0,0,0,0.5);">Whether your teen is destined for the boardroom or simply needs a breakthrough in confidence, these skills compound for life.</p>
             </div>
-            
             <div class="grid-2x2">
-                <div class="bento-card reveal" style="background: rgba(10, 10, 10, 0.8); backdrop-filter: blur(10px); border: 1px solid rgba(21, 209, 213, 0.3); color: white;" data-tilt>
-                    <h3 style="color: var(--teal);">Visionary</h3>
-                    <p>You refuse to settle for ordinary. Your innovative ideas spark possibilities.</p>
+                <div class="bento-card glow-teal reveal" style="background: rgba(10, 10, 10, 0.8); backdrop-filter: blur(10px); border: 1px solid rgba(21, 209, 213, 0.3); color: white;" data-tilt data-tilt-glare data-tilt-max-glare="0.3">
+                    <h3 style="color: var(--teal); transform: translateZ(50px);">Visionary</h3>
+                    <p style="transform: translateZ(30px);">You refuse to settle for ordinary. Your innovative ideas spark possibilities.</p>
                 </div>
-                <div class="bento-card reveal" style="background: rgba(10, 10, 10, 0.8); backdrop-filter: blur(10px); border: 1px solid rgba(255, 184, 0, 0.3); color: white;" data-tilt>
-                    <h3 style="color: var(--yellow);">Team Player</h3>
-                    <p>You know the power of collaboration and mutual support.</p>
+                <div class="bento-card glow-yellow reveal" style="background: rgba(10, 10, 10, 0.8); backdrop-filter: blur(10px); border: 1px solid rgba(255, 184, 0, 0.3); color: white;" data-tilt data-tilt-glare data-tilt-max-glare="0.3">
+                    <h3 style="color: var(--yellow); transform: translateZ(50px);">Team Player</h3>
+                    <p style="transform: translateZ(30px);">You know the power of collaboration and mutual support.</p>
                 </div>
-                <div class="bento-card reveal" style="background: var(--teal); border: none; color: var(--navy);" data-tilt>
-                    <h3 style="color: var(--navy);">Action Taker</h3>
-                    <p>You don't just talk; you execute. You assess, adapt, and get results.</p>
+                <div class="bento-card reveal" style="background: var(--teal); border: none; color: var(--navy);" data-tilt data-tilt-glare data-tilt-max-glare="0.2">
+                    <h3 style="color: var(--navy); transform: translateZ(50px);">Action Taker</h3>
+                    <p style="transform: translateZ(30px);">You don't just talk; you execute. You assess, adapt, and get results.</p>
                 </div>
-                <div class="bento-card reveal" style="background: rgba(10, 10, 10, 0.8); backdrop-filter: blur(10px); border: 1px solid rgba(240, 101, 0, 0.3); color: white;" data-tilt>
-                    <h3 style="color: var(--orange);">Learner</h3>
-                    <p>You have an insatiable thirst for new strategies to grow personally.</p>
+                <div class="bento-card glow-orange reveal" style="background: rgba(10, 10, 10, 0.8); backdrop-filter: blur(10px); border: 1px solid rgba(240, 101, 0, 0.3); color: white;" data-tilt data-tilt-glare data-tilt-max-glare="0.3">
+                    <h3 style="color: var(--orange); transform: translateZ(50px);">Learner</h3>
+                    <p style="transform: translateZ(30px);">You have an insatiable thirst for new strategies to grow personally.</p>
                 </div>
             </div>
         </div>
@@ -289,7 +280,7 @@
                     <div class="bento-card" style="background: var(--bg-cream);">
                         <h3 style="color: var(--teal); font-size: 1.8rem;">Day 1: The Foundation</h3>
                         <p style="font-weight: 700; color: var(--navy);">Market Mayhem & Mindset Matters.</p>
-                        <p style="margin-top: 10px; font-size: 0.95rem; color: #555;">The journey begins with high-energy simulations designed to break comfort zones and establish the "Entrepreneur Mindset."</p>
+                        <p style="margin-top: 10px; font-size: 0.95rem; color: #555;">The journey begins with high-energy simulations designed to break comfort zones.</p>
                     </div>
                 </div>
                 <div class="timeline-item reveal delay-1" data-tilt>
@@ -297,7 +288,7 @@
                     <div class="bento-card" style="background: var(--bg-cream);">
                         <h3 style="color: var(--yellow); font-size: 1.8rem;">Day 2: The Blueprint</h3>
                         <p style="font-weight: 700; color: var(--navy);">Market Research & Business Planning.</p>
-                        <p style="margin-top: 10px; font-size: 0.95rem; color: #555;">Teens learn to identify profitable problems and architect a viable business model using modern tools.</p>
+                        <p style="margin-top: 10px; font-size: 0.95rem; color: #555;">Teens learn to identify profitable problems and architect a viable business model.</p>
                     </div>
                 </div>
                 <div class="timeline-item reveal delay-2" data-tilt>
@@ -305,7 +296,7 @@
                     <div class="bento-card" style="background: var(--bg-cream);">
                         <h3 style="color: var(--orange); font-size: 1.8rem;">Day 3: The Polish</h3>
                         <p style="font-weight: 700; color: var(--navy);">Communication Keys & Pitch Practice.</p>
-                        <p style="margin-top: 10px; font-size: 0.95rem; color: #555;">Refining the message. Teens work on public speaking, slide deck design, and handling high-pressure questions.</p>
+                        <p style="margin-top: 10px; font-size: 0.95rem; color: #555;">Refining the message through public speaking and deck design.</p>
                     </div>
                 </div>
                 <div class="timeline-item reveal" data-tilt>
@@ -313,7 +304,7 @@
                     <div class="bento-card" style="background: var(--navy); color: white;">
                         <h3 style="color: var(--teal); font-size: 1.8rem;">Day 4: The Execution</h3>
                         <p style="font-weight: 700; color: var(--yellow);">Shark Tank Session & Awards.</p>
-                        <p style="margin-top: 10px; font-size: 0.95rem; color: rgba(255,255,255,0.8);">The finale. Live pitches to real investors, awards ceremony, and networking with 7-figure founders.</p>
+                        <p style="margin-top: 10px; font-size: 0.95rem; color: rgba(255,255,255,0.8);">Live pitches to real investors and networking with 7-figure founders.</p>
                     </div>
                 </div>
             </div>
@@ -337,13 +328,9 @@
         <a href="#" class="btn-primary" style="font-size: 1.5rem; padding: 20px 50px;">SECURE YOUR SPOT TODAY</a>
     </section>
 
-   <footer>
+    <footer>
         <h2 style="color: var(--yellow);">Y.E.S. '26</h2>
-        <div class="footer-links" style="margin: 20px 0;">
-            <a href="#">DONATE</a>
-            <a href="#">PARTNER</a>
-            <a href="#">CONTACT</a>
-        </div>
+        <div class="footer-links" style="margin: 20px 0;"><a href="#">DONATE</a><a href="#">PARTNER</a><a href="#">CONTACT</a></div>
         <p style="font-size: 0.85rem; color: #888;">&copy; 2026 Youth Entrepreneurs Summit. A Registered 501(c)3 Nonprofit.</p>
     </footer>
 
