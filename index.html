@@ -151,11 +151,28 @@
     
         }
         .hero h1 { 
-            font-size: 5.5rem; /* Increased size */
+            font-size: 10rem; /* Massive impact */
             margin-bottom: 20px; 
-            line-height: 1; 
-            color: white; 
+            line-height: 0.85; /* Tight line height for that modern look */
+            color: #ffffff !important; /* Forces white */
             font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: -4px; /* Tight tracking for "Big Type" aesthetic */
+        }
+
+        .hero-gradient-text {
+            background: linear-gradient(135deg, #00f2ff 0%, #7000ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline;
+        }
+
+        /* --- SECTION TITLES (H2) --- */
+        h2.section-title { 
+            font-size: 4.5rem; /* Large, but clearly secondary to the H1 */
+            text-align: center; 
+            margin-bottom: 50px; 
+            line-height: 1;
         }
 
         /* Specific gradient for the hero text */
@@ -245,14 +262,19 @@
         .delay-2 { transition-delay: 0.2s; }
         .delay-3 { transition-delay: 0.3s; }
 
+        @media (max-width: 1200px) {
+            .hero h1 { font-size: 7rem; } /* Scales down for smaller laptops */
+        }
+
         @media (max-width: 900px) {
             .hero, .bento-asym, .sticky-section, .editorial-split, .faq-split { grid-template-columns: 1fr; }
-            .grid-2x2 { grid-template-columns: 1fr; }
-            .sticky-sidebar { position: static; margin-bottom: 30px; }
-            .hero h1 { font-size: 3.5rem; }
+            .hero h1 { font-size: 5rem; letter-spacing: -2px; } /* Still much bigger than the H2 */
+            h2.section-title { font-size: 3rem; } /* H2 shrinks to stay in its place */
             .nav-links { display: none; }
-            .final-cta h2 { font-size: 3rem; }
         }
+    
+
+    
     </style>
 </head>
 <body>
